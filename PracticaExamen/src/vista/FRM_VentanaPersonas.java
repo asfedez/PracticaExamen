@@ -5,20 +5,57 @@
  */
 package vista;
 
+import controlador.Controlador_FRM_VentanaPersonas;
+
 /**
  *
  * @author Casa
  */
 public class FRM_VentanaPersonas extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FRM_VentanaPractica
-     */
+    Controlador_FRM_VentanaPersonas controlador;
     public FRM_VentanaPersonas() {
         initComponents();
         setVisible(false);
+        controlador = new Controlador_FRM_VentanaPersonas(this);
+        this.panelBotones1.agregarEventos(controlador);
     }
 
+    
+    public String[] obtenerInformacionAGuardar()
+    {
+        return this.panelInformacion2.obtenerInformacionAGuardar();
+    }
+    
+    public String devolverCedula()
+    {
+        return this.panelInformacion2.devolverCedula();
+    }
+    
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.panelInformacion2.mostrarInformacion(arreglo);
+    }
+    
+    public void habilitarAgregar()
+    {
+        this.panelBotones1.habilitarAgregar();
+        this.panelInformacion2.habilitarAgregar();
+    }
+    
+    public void habilitarEdicion()
+    {
+        this.panelInformacion2.habilitarAgregar();
+        this.panelBotones1.habilitarEdicion();
+    }
+    
+    public void inicializarGUI()
+    {
+        this.panelInformacion2.inicializarGUI();
+        this.panelBotones1.inicializarGUI();
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,8 +67,6 @@ public class FRM_VentanaPersonas extends javax.swing.JFrame {
 
         panelBotones1 = new vista.PanelBotones();
         panelInformacion2 = new vista.PanelInformacion();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
