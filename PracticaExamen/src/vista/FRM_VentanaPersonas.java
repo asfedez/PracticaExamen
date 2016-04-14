@@ -19,6 +19,7 @@ public class FRM_VentanaPersonas extends javax.swing.JFrame {
         setVisible(false);
         controlador = new Controlador_FRM_VentanaPersonas(this);
         this.panelBotones1.agregarEventos(controlador);
+        this.panelInformacion2.agregarEventos(controlador);
     }
 
     

@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import modelo.MetodosPersona;
 import vista.FRM_VentanaPersonas;
 
@@ -32,9 +33,9 @@ public class Controlador_FRM_VentanaPersonas implements ActionListener {
         {
             metodosPersona.agregarPersona(frm_ventanaPersona.obtenerInformacionAGuardar());
             frm_ventanaPersona.inicializarGUI();
-            System.out.println("guardado");
+            JOptionPane.showMessageDialog(frm_ventanaPersona, "Persona guardada");
         }
-        if(e.getActionCommand().equalsIgnoreCase("Buscar"))
+        if(e.getActionCommand().equalsIgnoreCase("Buscar")||e.getActionCommand().equalsIgnoreCase("Consultar"))
         {
             buscar();
         }
@@ -42,13 +43,13 @@ public class Controlador_FRM_VentanaPersonas implements ActionListener {
         {
             metodosPersona.modificarPersona(frm_ventanaPersona.obtenerInformacionAGuardar());
             frm_ventanaPersona.inicializarGUI();
-            System.out.println("modificado");
+            JOptionPane.showMessageDialog(frm_ventanaPersona, "Persona modificada");
         }
         if(e.getActionCommand().equalsIgnoreCase("Eliminar"))
         {
             metodosPersona.eliminarPersona(frm_ventanaPersona.obtenerInformacionAGuardar()[0]);
             frm_ventanaPersona.inicializarGUI();
-            System.out.println("eliminado");
+            JOptionPane.showMessageDialog(frm_ventanaPersona, "Persona eliminada");
         }
     }
     
@@ -63,7 +64,7 @@ public class Controlador_FRM_VentanaPersonas implements ActionListener {
         else
         {
             frm_ventanaPersona.habilitarAgregar();
-            System.out.println("No encontrado");
+            JOptionPane.showMessageDialog(frm_ventanaPersona, "Persona no encontrada");
             
         }
         

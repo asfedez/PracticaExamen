@@ -5,12 +5,15 @@
  */
 package vista;
 
+import controlador.Controlador_FRM_VentanaPersonas;
+
 /**
  *
  * @author Casa
  */
 public class PanelInformacion extends javax.swing.JPanel {
 
+    Controlador_FRM_VentanaPersonas controlador;
     /**
      * Creates new form PanelInformacion
      */
@@ -71,7 +74,11 @@ public class PanelInformacion extends javax.swing.JPanel {
    }
    
    
-   
+   public void agregarEventos(Controlador_FRM_VentanaPersonas controlador)
+   {
+       this.controlador=controlador;
+       this.btnConsultaRapida.addActionListener(controlador);
+   }
    
     
     @SuppressWarnings("unchecked")
@@ -91,6 +98,12 @@ public class PanelInformacion extends javax.swing.JPanel {
         jLabel2.setText("Nombre");
 
         jLabel3.setText("Edad");
+
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyPressed(evt);
+            }
+        });
 
         jcbEdad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -139,6 +152,14 @@ public class PanelInformacion extends javax.swing.JPanel {
                     .addComponent(jcbEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==10)
+        {
+            controlador.buscar();
+        }
+    }//GEN-LAST:event_txtCedulaKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
