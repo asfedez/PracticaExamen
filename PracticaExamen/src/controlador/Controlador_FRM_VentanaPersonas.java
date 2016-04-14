@@ -7,8 +7,11 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.ArchivoPersona;
 import modelo.MetodosPersona;
+import modelo.Persona;
 import vista.FRM_VentanaPersonas;
 
 /**
@@ -19,11 +22,14 @@ public class Controlador_FRM_VentanaPersonas implements ActionListener {
 
     FRM_VentanaPersonas frm_ventanaPersona;
     MetodosPersona metodosPersona;
+    ArchivoPersona archivoPersona;
     
     public Controlador_FRM_VentanaPersonas(FRM_VentanaPersonas frm_ventanaPersona) 
     {
         this.frm_ventanaPersona = frm_ventanaPersona;
         metodosPersona= new MetodosPersona();
+        archivoPersona = new ArchivoPersona();
+        
     }
     
     
@@ -69,4 +75,20 @@ public class Controlador_FRM_VentanaPersonas implements ActionListener {
         }
         
     }
+    
+    ///***Archivo***///
+    public void agregarPersonaEnArchivo()
+    {
+        ArrayList<Persona> listaDePersonas = metodosPersona.getListaPersonas();
+        
+        for (int i = 0; i < listaDePersonas.size(); i++) 
+        {
+            archivoPersona.escribirEnElArchivo(listaDePersonas.get(i));    
+        } 
+    }
+    
+
+    
+    
+    
 }

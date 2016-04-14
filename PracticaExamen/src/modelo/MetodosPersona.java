@@ -61,4 +61,17 @@ public class MetodosPersona
             }
         }
     }
+    
+    
+    /////*****Archivo*****////
+    
+    public ArrayList<Persona> getListaPersonas()
+    {
+        return listaPersonas;
+    }
+    
+    
+    
+    
+    
 }

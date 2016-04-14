@@ -69,6 +69,12 @@ public class FRM_VentanaPersonas extends javax.swing.JFrame {
         panelBotones1 = new vista.PanelBotones();
         panelInformacion2 = new vista.PanelInformacion();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,6 +92,10 @@ public class FRM_VentanaPersonas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        controlador.agregarPersonaEnArchivo();
+    }//GEN-LAST:event_formComponentHidden
 
     /**
      * @param args the command line arguments

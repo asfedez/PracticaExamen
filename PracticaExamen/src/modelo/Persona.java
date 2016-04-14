@@ -5,11 +5,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Casa
  */
-public class Persona {
+public class Persona implements Serializable {
     
     private String cedula;
     private String nombre;
